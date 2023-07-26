@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { AiFillFacebook, AiOutlineGoogle } from "react-icons/ai";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -80,13 +79,13 @@ const LoginModal = () => {
 				outline
 				label="Continue with Google"
 				icon={AiOutlineGoogle}
-				onClick={() => {}}
+				onClick={() => signIn("google")}
 			/>
 			<Button
 				outline
 				label="Continue with Facebook"
 				icon={AiFillFacebook}
-				onClick={() => {}}
+				onClick={() => signIn("facebook")}
 			/>
 			<div className="text-neutral-500 text-center mt-4 font-light">
 				<div className="justify-center flex flex-row items-center gap-2">
