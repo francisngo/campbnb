@@ -1,6 +1,8 @@
+"use client";
+
 import { usePathname, useSearchParams } from "next/navigation";
 import { TbTent, TbBeach, TbCamper, TbHome, TbKayak } from "react-icons/tb";
-import Container from "./Container";
+import Container from "../Container";
 import CategoryBox from "./CategoryBox";
 
 export const categories = [
