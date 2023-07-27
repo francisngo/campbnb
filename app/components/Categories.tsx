@@ -1,6 +1,6 @@
+import { usePathname, useSearchParams } from "next/navigation";
+import { TbTent, TbBeach, TbCamper, TbHome, TbKayak } from "react-icons/tb";
 import Container from "./Container";
-
-import { TbTent, TbBeach, TbCaravan, TbKayak, TbHome } from "react-icons/tb";
 import CategoryBox from "./CategoryBox";
 
 export const categories = [
@@ -16,7 +16,7 @@ export const categories = [
 	},
 	{
 		label: "RV",
-		icon: TbCaravan,
+		icon: TbCamper,
 		description: "This property is for RV camping",
 	},
 	{
@@ -32,15 +32,25 @@ export const categories = [
 ];
 
 const Categories = () => {
+	const params = useSearchParams();
+	const category = params?.get("category");
+	const pathname = usePathname();
+
+	const isMainPage = pathname === "/";
+
+	if (!isMainPage) {
+		return null;
+	}
+
 	return (
 		<Container>
 			<div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
-				{categories.map((category) => (
+				{categories.map((item) => (
 					<CategoryBox
-						key={category.label}
-						label={category.label}
-						description={category.description}
-						icon={category.icon}
+						key={item.label}
+						label={item.label}
+						selected={category === item.label}
+						icon={item.icon}
 					/>
 				))}
 			</div>
