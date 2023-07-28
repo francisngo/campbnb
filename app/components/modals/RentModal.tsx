@@ -10,6 +10,7 @@ import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import CountrySelect from "../inputs/CountrySelect";
 import Counter from "../inputs/Counter";
+import ImageUpload from "../inputs/ImageUpload";
 
 enum STEPS {
 	CATEGORY = 0,
@@ -51,6 +52,7 @@ const RentModal = () => {
 	const guestCount = watch("guestCount");
 	const carCount = watch("carCount");
 	const toiletCount = watch("toiletCount");
+	const imageSrc = watch("imageSrc");
 
 	// https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#basic-usage
 	const Map = useMemo(
@@ -155,6 +157,21 @@ const RentModal = () => {
 					value={toiletCount}
 					title="Toilets"
 					subtitle="How many toilets do you have?"
+				/>
+			</div>
+		);
+	}
+
+	if (step === STEPS.IMAGES) {
+		bodyContent = (
+			<div className="flex flex-col gap-8">
+				<Heading
+					title="Add a photo of your place"
+					subtitle="Show guests what your place looks like!"
+				/>
+				<ImageUpload
+					onChange={(value) => setCustomValue("imageSrc", value)}
+					value={imageSrc}
 				/>
 			</div>
 		);
