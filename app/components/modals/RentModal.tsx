@@ -2,14 +2,14 @@
 
 import { useState, useMemo } from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import dynamic from "next/dynamic";
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import CountrySelect from "../inputs/CountrySelect";
-import Map from "../Map";
-import dynamic from "next/dynamic";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
 	CATEGORY = 0,
@@ -48,7 +48,11 @@ const RentModal = () => {
 
 	const category = watch("category");
 	const location = watch("location");
+	const guestCount = watch("guestCount");
+	const carCount = watch("carCount");
+	const toiletCount = watch("toiletCount");
 
+	// https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#basic-usage
 	const Map = useMemo(
 		() => dynamic(() => import("../Map"), { ssr: false }),
 		[location]
@@ -121,6 +125,37 @@ const RentModal = () => {
 					onChange={(value) => setCustomValue("location", value)}
 				/>
 				<Map center={location?.latlng} />
+			</div>
+		);
+	}
+
+	if (step === STEPS.INFO) {
+		bodyContent = (
+			<div className="flex flex-col gap-8">
+				<Heading
+					title="Share some basics about your place"
+					subtitle="what amenities do you have?"
+				/>
+				<Counter
+					onChange={(value) => setCustomValue("guestCount", value)}
+					value={guestCount}
+					title="Guests"
+					subtitle="How many guests do you allow?"
+				/>
+				<hr />
+				<Counter
+					onChange={(value) => setCustomValue("carCount", value)}
+					value={carCount}
+					title="Car"
+					subtitle="How many cars do you allow?"
+				/>
+				<hr />
+				<Counter
+					onChange={(value) => setCustomValue("carCount", value)}
+					value={toiletCount}
+					title="Toilets"
+					subtitle="How many toilets do you have?"
+				/>
 			</div>
 		);
 	}
