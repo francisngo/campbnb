@@ -14,6 +14,8 @@ interface ImageUploadProps {
 	value: string;
 }
 
+const uploadPreset = "uycqfmc0";
+
 const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
 	const handleUpload = useCallback(
 		(result: any) => {
@@ -25,7 +27,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
 	return (
 		<CldUploadWidget
 			onUpload={handleUpload}
-			uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}
+			uploadPreset={uploadPreset}
 			options={{
 				maxFiles: 1,
 			}}
