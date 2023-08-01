@@ -1,3 +1,23 @@
+import ClientComponent from "./components/ClientComponent";
+import Container from "./components/Container";
+import EmptyState from "./components/EmptyState";
+
 export default function Home() {
-	return <div className="text-rose-500 text-2xl">Hello Campbnb!</div>;
+	const isEmpty = true;
+	if (isEmpty) {
+		return (
+			<ClientComponent>
+				<EmptyState />
+			</ClientComponent>
+		);
+	}
+	return (
+		<ClientComponent>
+			<Container>
+				<div className="pt-24 grid grid-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+					<div>My Future Listings</div>
+				</div>
+			</Container>
+		</ClientComponent>
+	);
 }
