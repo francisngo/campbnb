@@ -4,9 +4,9 @@ import getReservations from "@/app/actions/getReservations";
 import ClientComponent from "@/app/components/ClientComponent";
 import EmptyState from "@/app/components/EmptyState";
 
-import Trips from "./Trips";
+import Reservations from "./Reservations";
 
-const TripsPage = async () => {
+const ReservationsPage = async () => {
 	const currentUser = await getCurrentUser();
 
 	if (!currentUser) {
@@ -17,14 +17,14 @@ const TripsPage = async () => {
 		);
 	}
 
-	const reservations = await getReservations({ userId: currentUser.id });
+	const reservations = await getReservations({ authorId: currentUser.id });
 
 	if (reservations.length === 0) {
 		return (
 			<ClientComponent>
 				<EmptyState
-					title="No trips found."
-					subtitle="Looks like you haven't reserved any trips"
+					title="No reservations found."
+					subtitle="Looks like you have no reservations on your properties."
 				/>
 			</ClientComponent>
 		);
@@ -32,9 +32,12 @@ const TripsPage = async () => {
 
 	return (
 		<ClientComponent>
-			<Trips reservations={reservations} currentUser={currentUser} />
+			<Reservations
+				reservations={reservations}
+				currentUser={currentUser}
+			/>
 		</ClientComponent>
 	);
 };
 
-export default TripsPage;
+export default ReservationsPage;

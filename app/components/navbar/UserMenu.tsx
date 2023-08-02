@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
@@ -16,6 +17,7 @@ interface UserMenuProps {
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+	const router = useRouter();
 	const registerModal = useRegisterModal();
 	const loginModal = useLoginModal();
 	const rentModal = useRentModal();
@@ -57,13 +59,16 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 					<div className="flex flex-col cursor-pointer">
 						{currentUser ? (
 							<>
-								<MenuItem onClick={() => {}} label="Trips" />
+								<MenuItem
+									onClick={() => router.push("/trips")}
+									label="Trips"
+								/>
 								<MenuItem
 									onClick={() => {}}
 									label="Favorites"
 								/>
 								<MenuItem
-									onClick={() => {}}
+									onClick={() => router.push("/reservations")}
 									label="Reservations"
 								/>
 								<MenuItem
@@ -71,7 +76,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 									label="My Campsites"
 								/>
 								<MenuItem
-									onClick={() => {}}
+									onClick={() => rentModal.onOpen}
 									label="Campbnb my site"
 								/>
 								<hr />
