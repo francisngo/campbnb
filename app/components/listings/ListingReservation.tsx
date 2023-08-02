@@ -31,11 +31,13 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
 				<div className="font-light text-neutral-600">/night</div>
 			</div>
 			<hr />
-			<Calendar
-				value={dateRange}
-				disabledDates={disabledDates}
-				onChange={(value) => onChangeDate(value.selection)}
-			/>
+			<div className="flex flex-row items-center justify-center">
+				<Calendar
+					value={dateRange}
+					disabledDates={disabledDates}
+					onChange={(value) => onChangeDate(value.selection)}
+				/>
+			</div>
 			<hr />
 			<div className="p-4">
 				<Button
