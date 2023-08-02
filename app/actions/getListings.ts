@@ -84,6 +84,7 @@ export default async function getListings(
             }
         });
 
+        // Only plain objects can be passed to Client Components from Server Components. Date objects are not supported. 
         const safeListings = listings.map((listing) => ({
             ...listing,
             createdAt: listing.createdAt.toISOString(),
