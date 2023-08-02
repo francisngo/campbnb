@@ -10,7 +10,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
-import Input from "../inputs/Input";
+import Input from "@/app/components/inputs/Input";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
 

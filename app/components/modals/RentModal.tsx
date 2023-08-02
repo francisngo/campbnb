@@ -9,12 +9,12 @@ import { useRouter } from "next/navigation";
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
-import { categories } from "../navbar/Categories";
-import CategoryInput from "../inputs/CategoryInput";
-import CountrySelect from "../inputs/CountrySelect";
-import Counter from "../inputs/Counter";
-import ImageUpload from "../inputs/ImageUpload";
-import Input from "../inputs/Input";
+import { categories } from "@/app/components/navbar/Categories";
+import CategoryInput from "@/app/components/inputs/CategoryInput";
+import CountrySelect from "@/app/components/inputs/CountrySelect";
+import Counter from "@/app/components/inputs/Counter";
+import ImageUpload from "@/app/components/inputs/ImageUpload";
+import Input from "@/app/components/inputs/Input";
 
 enum STEPS {
 	CATEGORY = 0,
