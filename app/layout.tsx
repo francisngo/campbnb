@@ -2,13 +2,14 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
-import Navbar from "./components/navbar/Navbar";
-import RegisterModal from "./components/modals/RegisterModal";
-import LoginModal from "./components/modals/LoginModal";
-import RentModal from "./components/modals/RentModal";
-import ToasterProvider from "./providers/ToasterProvider";
-import getCurrentUser from "./actions/getCurrentUser";
-import ClientComponent from "./components/ClientComponent";
+import Navbar from "@/app/components/navbar/Navbar";
+import RegisterModal from "@/app/components/modals/RegisterModal";
+import LoginModal from "@/app/components/modals/LoginModal";
+import RentModal from "@/app/components/modals/RentModal";
+import SearchModal from "@/app/components/modals/SearchModal";
+import ToasterProvider from "@/app/providers/ToasterProvider";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import ClientComponent from "@/app/components/ClientComponent";
 
 export const metadata: Metadata = {
 	title: "Campbnb",
@@ -31,6 +32,7 @@ export default async function RootLayout({
 			<body className={font.className}>
 				<ClientComponent>
 					<ToasterProvider />
+					<SearchModal />
 					<RentModal />
 					<LoginModal />
 					<RegisterModal />
