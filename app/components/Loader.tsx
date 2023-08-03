@@ -1,6 +1,6 @@
 "use client";
 
-import { PuffLoader } from "react-spinners";
+import { PulseLoader } from "react-spinners";
 
 const Loader = () => {
 	return (
@@ -13,7 +13,7 @@ const Loader = () => {
       items-center 
     "
 		>
-			<PuffLoader size={100} color="red" />
+			<PulseLoader size={25} color="#047857" />
 		</div>
 	);
 };
