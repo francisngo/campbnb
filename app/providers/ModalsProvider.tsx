@@ -1,6 +1,6 @@
 "use client";
 
-import RegisterModal from "../components/modals/RegisterModal";
+import RegisterModal from "@/app/components/modals/RegisterModal";
 
 const ModalsProvider = () => {
 	return <RegisterModal />;
