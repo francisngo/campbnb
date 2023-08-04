@@ -51,12 +51,12 @@
 The Campbnb application is a replica of the popular online marketplace for short- and long-term homestays and experiences, Airbnb. This project was created as a personal project to showcase my skills in software engineering and gain hands-on experience with various modern web technologies. 
 
 ## Features: 
-* User Authentication: Leveraging Next-Auth, users can sign up, log in, and log out of the application with email or built-in providers such as Google and Facebook. Passwords are securely hashed and stored using Bcrypt. 
-* Listings: Users can view available listings, including details like campsite description, location and pricing. 
-* Campsite Management: Hosts can create and manage campsite listings, reservations, adding essential information, images and pricing details. 
-* Booking System: Users can select available dates, book properties, and select location categories.
-* Search and Filters: Users can search for campsites based on location, dates, and other filters. 
-* User Profiles: Each user has a profile page displaying their bookings, listings, and favorites. 
+* **User Authentication**: Leveraging Next-Auth, users can sign up, log in, and log out of the application with email or built-in providers such as Google and Facebook. Passwords are securely hashed and stored using Bcrypt. 
+* **Listings**: Users can view available listings, including details like campsite description, location and pricing. 
+* **Campsite Management**: Hosts can create and manage campsite listings, reservations, adding essential information, images and pricing details. 
+* **Booking System**: Users can select available dates, book properties, and select location categories.
+* **Search and Filters**: Users can search for campsites based on location, dates, and other filters. 
+* **User Profiles**: Each user has a profile page displaying their bookings, listings, and favorites. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,11 +101,11 @@ npm run dev
 ```
 
 ### Prerequisites
-Create a .env file
-Set up a Mongo database at https://www.mongodb.com/atlas/database
-Set up Facebook Client ID and Client Secret at https://developers.facebook.com/apps/ (be sure to select "Test App")
-Set up Google Client ID and Client Secret at https://console.cloud.google.com/
-Set up Cloudinary API key at  https://cloudinary.com/
+* Create a .env file
+* Set up a Mongo database at https://www.mongodb.com/atlas/database
+* Set up Facebook Client ID and Client Secret at https://developers.facebook.com/apps/ (be sure to select "Test App")
+* Set up Google Client ID and Client Secret at https://console.cloud.google.com/
+* Set up Cloudinary API key at  https://cloudinary.com/
 
 Your .env should look something like this:
 ```
@@ -120,6 +120,8 @@ GOOGLE_CLIENT_SECRET=""
 
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=""
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- LICENSE -->
