@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Campbnb](https://res.cloudinary.com/dvem4f8wl/image/upload/v1691173615/Screenshot_2023-08-04_at_11.24.42_AM_ksviqx.png)
+![Campbnb](public/images/screenshot.png)
 
 The Campbnb application is a replica of the popular online marketplace for short- and long-term homestays and experiences, Airbnb. This project was created as a personal project to showcase my skills in software engineering and gain hands-on experience with various modern web technologies. 
 
