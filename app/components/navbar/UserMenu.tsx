@@ -35,6 +35,15 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 		rentModal.onOpen();
 	}, [currentUser, loginModal, rentModal]);
 
+	const handleMenuItemClick = (route: string | (() => void)) => {
+		if (typeof route === "string") {
+			router.push(route);
+		} else if (typeof route === "function") {
+			route();
+		}
+		setIsOpen((value) => !value);
+	};
+
 	return (
 		<div className="relative">
 			<div className="flex flex-row items-center gap-3">
@@ -60,39 +69,55 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 						{currentUser ? (
 							<>
 								<MenuItem
-									onClick={() => router.push("/trips")}
+									onClick={() =>
+										handleMenuItemClick("/trips")
+									}
 									label="Trips"
 								/>
 								<MenuItem
-									onClick={() => router.push("/favorites")}
+									onClick={() =>
+										handleMenuItemClick("/favorites")
+									}
 									label="Favorites"
 								/>
 								<MenuItem
-									onClick={() => router.push("/reservations")}
+									onClick={() =>
+										handleMenuItemClick("/reservations")
+									}
 									label="Reservations"
 								/>
 								<MenuItem
-									onClick={() => router.push("/properties")}
+									onClick={() =>
+										handleMenuItemClick("/properties")
+									}
 									label="My Campsites"
 								/>
 								<MenuItem
-									onClick={() => rentModal.onOpen}
+									onClick={() =>
+										handleMenuItemClick(rentModal.onOpen)
+									}
 									label="Campbnb my site"
 								/>
 								<hr />
 								<MenuItem
-									onClick={() => signOut()}
+									onClick={() => handleMenuItemClick(signOut)}
 									label="Logout"
 								/>
 							</>
 						) : (
 							<>
 								<MenuItem
-									onClick={loginModal.onOpen}
+									onClick={() =>
+										handleMenuItemClick(loginModal.onOpen)
+									}
 									label="Login"
 								/>
 								<MenuItem
-									onClick={registerModal.onOpen}
+									onClick={() =>
+										handleMenuItemClick(
+											registerModal.onOpen
+										)
+									}
 									label="Sign up"
 								/>
 							</>
